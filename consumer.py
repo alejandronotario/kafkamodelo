@@ -8,16 +8,19 @@ from openai import OpenAI
 os.environ["OPENAI_API_KEY"] = ''
 client = OpenAI()
 
-consumer = KafkaConsumer('llamadas', bootstrap_servers=['localhost:29092'],
+consumer = KafkaConsumer('textos', bootstrap_servers=['localhost:29092'],
      api_version=(0,10))
 
-response = client.chat.completions.create(
-    model="gpt-3.5-turbo",
-    messages=[
-    {"role": "system", "content": "You are a helpful assistant designed to output JSON."},
-    {"role": "user", "content": "Sentiment analysis of the following text: hoy es un dis soleado pero me pongo triste cuando llueve"}
-  ]
-)
+for mensaje in consumer:
+    texto = str(mensaje.value.decode())
 
-
-print(response.choices[0].message.content)
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+        {"role": "system", "content": "You are a helpful assistant designed to output JSON."},
+        {"role": "user", "content": "Sentiment analysis of the following text: {}".format(texto)}
+      ]
+    )
+    print(response.choices[0].message.content)
+    if "negative" in response.choices[0].message.content:
+        print("ALERTA")  
