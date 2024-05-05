@@ -2,10 +2,10 @@
 
 ## Alcance
 
-Simulador de modelo de sentimiento para clasificar llamadas transcritas a firmato texto de apertura de siniestros
+Simulador de modelo de sentimiento para clasificar llamadas transcritas a formato texto de apertura de siniestros
 de una aseguradora. Tiene que se clasificarse en tiempo real por si es necesario actuar por parte
-de los tramitadores. Los resultados se imprimirían en un frontal que los tramitadores usan
-En este emulador, se imprimirá "alerta" en caso de que el texto se clasifique como negativo.
+de los tramitadores. Los resultados se imprimirían en un frontal que los tramitadores usan.
+En este emulador, se imprimirá __ALERTA__ en caso de que el texto se clasifique como negativo.
 
 ## Componentes 
 
