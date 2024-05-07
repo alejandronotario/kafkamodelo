@@ -7,4 +7,4 @@ with open("textos.txt", "r") as f:
 		producer.send("textos", msg.encode('utf-8'))
 		print("Enviando mensaje \"{}\"".format(msg))
 		print("Mensaje enviado")
-		time.sleep(2)
+		time.sleep(15)

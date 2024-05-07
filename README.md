@@ -5,7 +5,9 @@
 Simulador de modelo de sentimiento para clasificar llamadas transcritas a firmato texto de apertura de siniestros
 de una aseguradora. Tiene que se clasificarse en tiempo real por si es necesario actuar por parte
 de los tramitadores. Los resultados se imprimirían en un frontal que los tramitadores usan
-En este emulador, se imprimirá "alerta" en caso de que el texto se clasifique como negativo.
+En este emulador, se solicita que el asistente imprima los pesos de sentimiento "positivo", "negativo" y "neutral"
+con escala de 0-1, el texto original, y en caso de que el peso negativo sea mayor a 0.5, se le pide al asistente
+que proponga un texto al teleoperador para que lo utilice.
 
 ## Componentes 
 
